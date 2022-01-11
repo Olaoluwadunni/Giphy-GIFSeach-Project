@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import './App.css';
 import getGIF from './services/getGIF';
+import { Link } from "react-router"
 
 
 function App() {
@@ -8,18 +9,15 @@ function App() {
   const [gif, setGif] = useState([])
   const handleSubmit = async(e) => {
     e.preventDefault()
-    // console.log(searchInput)
     getGIF(searchInput)
     .then((response) => setGif(response?.data))
     .catch((err) => console.log(JSON.stringify(err))); 
   }
-  if (gif.length = 0) {
-    return (
-      <div>
-        This is it
-      </div>
-    )
+  const handleClick = async(item) => {
+    // e.preventDefault()
+    console.log(item.slug)
   }
+  
   return (
     <div className="App mt-4">
       <div className='d-flex justify-content-center align-center mx-auto'>
@@ -42,9 +40,10 @@ function App() {
       <hr />
       GIF:
       <br />
-      {gif.data ? gif?.data?.map((each) => 
+      {/* {JSON.stringify(gif)} */}
+      {gif.data ? gif.data.map((item) => 
       {
-        const {images} = each
+        const {images} = item
       return (
         <>
           <img 
@@ -53,6 +52,7 @@ function App() {
             src={images.downsized.url} 
             alt={images.downsized.url}
             className='me-4 mt-4'
+            onClick={() => handleClick(item)}
           />
         </>
         )
