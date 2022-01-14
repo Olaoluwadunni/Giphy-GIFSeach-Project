@@ -2,6 +2,7 @@ import {useState} from 'react';
 import getGIF from '../../services/getGIF';
 import { Link } from "react-router-dom"
 import Cookie from 'js-cookie'
+import {Paper} from "@mui/material"
 // import { type } from '@testing-library/user-event/dist/type';
 
 const Home = () => {
@@ -29,7 +30,8 @@ const Home = () => {
             title: item.title,
             importDate: item.import_datetime,
             userName: item.username,
-            rating: item.rating
+            rating: item.rating,
+            url: item.url
         }})
         localStorage.setItem('gif', JSON.stringify(newItem))
         console.log(item.type, '---item')
@@ -68,7 +70,7 @@ const Home = () => {
                     height="250em"
                     src={images.downsized.url} 
                     alt={images.downsized.url}
-                    className='me-4 mt-4'
+                    className='me-4 mt-4 img-card'
                     onClick={() => handleClick(item)}
                 />
             </Link>

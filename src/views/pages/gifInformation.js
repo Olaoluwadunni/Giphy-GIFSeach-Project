@@ -1,5 +1,8 @@
-import { Paper, Divider, Typography } from '@mui/material'
+import { Paper, Divider, Typography,Button  } from '@mui/material'
 import Cookies from 'js-cookie'
+import {IoCaretBackOutline} from "react-icons/io5"
+import { Link } from 'react-router-dom'
+import {BsArrowRight} from 'react-icons/bs'
 
 const GifInformation = () => {
     const gifDetails = Cookies.getJSON("gif")
@@ -7,7 +10,12 @@ const GifInformation = () => {
     console.log('Ewo:' , gifDetails)
     return (
         <div>
-            <Typography variant='h4' className='text-center mt-4 mb-2'> GIF Information</Typography>
+            <div className='container mt-5'>
+                <Link to='/' className='text-decoration-none'>
+                    <Button variant="contained" className='text-capitalize bg-danger' disableElevation><IoCaretBackOutline/> back</Button>
+                </Link>
+            </div>
+            <Typography variant='h4' className='text-center mt-4 mb-3'> GIF Information</Typography>
             <div className='d-flex justify-content-center align-content-center'>
                 <img 
                     src={gifDetails.item.imageUrl}
@@ -15,7 +23,7 @@ const GifInformation = () => {
                     width="450em"
                     height="400em"
                     />
-                <Paper elevation={0} className='border ms-4 px-3 py-5'>
+                <Paper elevation={0} className='border ms-4 px-3 py-4'>
                     <p className=''><span className='fw-bold mt-2'>Username:</span> {gifDetails.item.userName}</p>
                     <Divider/>
                     <p className=''><span className='fw-bold mb-0'>Title:</span> {gifDetails.item.title}</p>
@@ -26,6 +34,7 @@ const GifInformation = () => {
                     <Divider/>
                     <p className=''><span className='fw-bold mb-0'>Id:</span> {gifDetails.item.id}</p>
                     <Divider/>
+                    <p><span className='fw-bold mb-0'>Url:</span><Link to= {gifDetails.item.url} className='text-decoration-none'>  Link <BsArrowRight/></Link></p>
                 </Paper>
             </div>
         </div>
