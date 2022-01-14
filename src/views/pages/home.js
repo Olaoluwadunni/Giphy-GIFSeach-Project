@@ -2,7 +2,7 @@ import {useState} from 'react';
 import getGIF from '../../services/getGIF';
 import { Link } from "react-router-dom"
 import Cookie from 'js-cookie'
-import { type } from '@testing-library/user-event/dist/type';
+// import { type } from '@testing-library/user-event/dist/type';
 
 const Home = () => {
     const [searchInput, setSearchInput] = useState()
@@ -24,7 +24,12 @@ const Home = () => {
 
         Cookie.set('gif', {item : {
             type: item.type,
-            id: item.id
+            id: item.id,
+            imageUrl: item.images.downsized.url,
+            title: item.title,
+            importDate: item.import_datetime,
+            userName: item.username,
+            rating: item.rating
         }})
         localStorage.setItem('gif', JSON.stringify(newItem))
         console.log(item.type, '---item')
@@ -57,7 +62,7 @@ const Home = () => {
             const {images} = item
             
         return (
-            <Link to={`/gif-information/${item.id}`}>
+            <Link to={`/gif-information/${item.id}`} key={index}>
                 <img 
                     width="300em"
                     height="250em"
