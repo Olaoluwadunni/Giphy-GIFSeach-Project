@@ -34,7 +34,7 @@ const GifInformation = () => {
                     <Divider/>
                     <p className=''><span className='fw-bold mb-0'>Id:</span> {gifDetails.item.id}</p>
                     <Divider/>
-                    <p><span className='fw-bold mb-0'>Url:</span><Link to= {gifDetails.item.url} className='text-decoration-none'>  Link <BsArrowRight/></Link></p>
+                    <p><span className='fw-bold mb-0'>Url:</span><a href= {gifDetails.item.url} rel='noreferrer' className='text-decoration-none' target='_blank'>Link<BsArrowRight/></a></p>
                 </Paper>
             </div>
         </div>

@@ -21,6 +21,7 @@ const Home = () => {
     const handleClick = async(item) => {
         
         const newItem = [item]
+        console.log(item.url)
 
         Cookie.set('gif', {item : {
             type: item.type,
