@@ -2,7 +2,6 @@ import {useState} from 'react';
 import getGIF from '../../services/getGIF';
 import { Link } from "react-router-dom"
 import Cookie from 'js-cookie'
-import {Paper} from "@mui/material"
 // import { type } from '@testing-library/user-event/dist/type';
 
 const Home = () => {
