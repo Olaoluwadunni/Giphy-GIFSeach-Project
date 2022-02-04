@@ -5,7 +5,7 @@ import Cookie from 'js-cookie'
 import { ReactComponent as Loader } from '../../assets/images/Spinner-1s-200px.svg';
 
 const Home = () => {
-    const [searchInput, setSearchInput] = useState()
+    const [searchInput, setSearchInput] = useState('')
     const [gif, setGif] = useState([])
     const [isLoading, setIsLoading] = useState(false )
     const handleSubmit = async(e) => {
